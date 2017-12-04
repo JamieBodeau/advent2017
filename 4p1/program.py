@@ -11,17 +11,22 @@ import sys
 
 # Functions -----------------------------------------------
 
+
+
 # Main Execution ------------------------------------------
 
 if __name__ == "__main__":
-    for line in sys.stdin:
-        line = line.strip()
+    # Track how many valid we have
+    numValid = 0
 
-        lastChar = line[-1]
-        
-        count = 0
-        for char in line:
-            if char == lastChar:
-                count += int(char)
-            lastChar = char
-        print count
+    # Read input
+    for words in map(str.split, sys.stdin):
+        # No duplicates if the set is the same length
+        if len(set(words)) == len(words):
+            numValid += 1
+    
+    # Output
+    print numValid
+
+
+
